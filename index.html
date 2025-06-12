@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Dia dos Namorados, Leticia! 💘</title>
+  <style>
+    body {
+      background: #fff0f5;
+      color: #d6336c;
+      font-family: 'Courier New', cursive;
+      text-align: center;
+      padding: 2em;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: beat 1s infinite alternate;
+      cursor: pointer;
+    }
+
+    .mensagem {
+      display: none;
+      margin-top: 1em;
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .galeria img {
+      width: 150px;
+      height: auto;
+      margin: 0.5em;
+      border-radius: 10px;
+    }
+
+    @keyframes beat {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+
+    .heart-fall {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall 6s linear infinite;
+      color: #ff69b4;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    iframe {
+      position: absolute;
+      top: -1000px;
+      width: 0;
+      height: 0;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música de fundo (oculta) -->
+  <iframe src="https://www.youtube.com/embed/r6t0czGbuGI?autoplay=1&loop=1&playlist=r6t0czGbuGI" allow="autoplay"></iframe>
+
+  <h1>Feliz Dia dos Namorados, Leticia! 💖</h1>
+  <p>Clique no coração abaixo para ver uma surpresinha...</p>
+  <div class="heart" onclick="mostrarMensagem()">❤️</div>
+
+  <div class="mensagem" id="mensagemDeAmor">
+    <p>Minha Leticia linda,<br><br>
+    Hoje é o nosso dia, mas todo dia ao seu lado é especial. Você transforma minha vida com seu amor, sua alegria e seu jeitinho único. Eu sou completamente apaixonado por você, e só quero te fazer sorrir sempre.<br><br>
+    Obrigado por ser você. Te amo mais do que palavras podem dizer. 💕<br><br>
+    Com todo o meu amor,<br>
+    Seu eterno namorado 💌</p>
+  </div>
+
+  <h2>Nossos Momentos</h2>
+  <div class="galeria">
+    <img src="foto1.jpg" alt="Momento 1">
+    <img src="foto2.jpg" alt="Momento 2">
+    <img src="foto3.jpg" alt="Momento 3">
+  </div>
+
+  <!-- Corações caindo -->
+  <script>
+    function mostrarMensagem() {
+      document.getElementById('mensagemDeAmor').style.display = 'block';
+    }
+
+    function criarCoracoes() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart-fall');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.innerHTML = "💖";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(criarCoracoes, 300);
+  </script>
+
+</body>
+</html>
