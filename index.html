@@ -71,6 +71,11 @@
   <p>Clique no coração abaixo para ver uma surpresinha...</p>
   <div class="heart" onclick="mostrarMensagem(); tocarMusica()">❤️</div>
 
+  <audio id="player" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
   <div class="mensagem" id="mensagemDeAmor">
     <p>Minha Leticia linda,<br><br>
     Hoje é o nosso dia, mas todo dia ao seu lado é especial. Você transforma minha vida com seu amor, sua alegria e seu jeitinho único. Eu sou completamente apaixonado por você, e só quero te fazer sorrir sempre.<br><br>
@@ -86,18 +91,13 @@
     <img src="imagens/foto3.jpg" alt="Momento 3">
   </div>
 
-  <!-- Scripts -->
   <script>
     function mostrarMensagem() {
       document.getElementById('mensagemDeAmor').style.display = 'block';
     }
 
     function tocarMusica() {
-      const iframe = document.createElement('iframe');
-      iframe.src = "https://www.youtube.com/embed/r6t0czGbuGI?autoplay=1&loop=1&playlist=r6t0czGbuGI";
-      iframe.allow = "autoplay";
-      iframe.style.display = "none";
-      document.body.appendChild(iframe);
+      document.getElementById("player").play();
     }
 
     function criarCoracoes() {
