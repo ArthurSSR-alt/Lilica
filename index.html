@@ -63,24 +63,13 @@
         opacity: 0;
       }
     }
-
-    iframe {
-      position: absolute;
-      top: -1000px;
-      width: 0;
-      height: 0;
-      border: none;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Música de fundo (oculta) -->
-  <iframe src="https://www.youtube.com/embed/r6t0czGbuGI?autoplay=1&loop=1&playlist=r6t0czGbuGI" allow="autoplay"></iframe>
-
   <h1>Feliz Dia dos Namorados, Leticia! 💖</h1>
   <p>Clique no coração abaixo para ver uma surpresinha...</p>
-  <div class="heart" onclick="mostrarMensagem()">❤️</div>
+  <div class="heart" onclick="mostrarMensagem(); tocarMusica()">❤️</div>
 
   <div class="mensagem" id="mensagemDeAmor">
     <p>Minha Leticia linda,<br><br>
@@ -92,15 +81,23 @@
 
   <h2>Nossos Momentos</h2>
   <div class="galeria">
-    <img src="foto1.jpg" alt="Momento 1">
-    <img src="foto2.jpg" alt="Momento 2">
-    <img src="foto3.jpg" alt="Momento 3">
+    <img src="imagens/foto1.jpg" alt="Momento 1">
+    <img src="imagens/foto2.jpg" alt="Momento 2">
+    <img src="imagens/foto3.jpg" alt="Momento 3">
   </div>
 
-  <!-- Corações caindo -->
+  <!-- Scripts -->
   <script>
     function mostrarMensagem() {
       document.getElementById('mensagemDeAmor').style.display = 'block';
+    }
+
+    function tocarMusica() {
+      const iframe = document.createElement('iframe');
+      iframe.src = "https://www.youtube.com/embed/r6t0czGbuGI?autoplay=1&loop=1&playlist=r6t0czGbuGI";
+      iframe.allow = "autoplay";
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
     }
 
     function criarCoracoes() {
